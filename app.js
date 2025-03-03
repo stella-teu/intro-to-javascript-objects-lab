@@ -231,7 +231,7 @@ Exercise 16
 
 Solve Exercise 16 here:
 */
-// console.log(game);
+console.log(game);
 
 /*
 Exercise 17
@@ -241,7 +241,7 @@ Exercise 17
 
 Solve Exercise 17 here:
 */
-// console.log(game.party.sort((a, b) => b.hp - a.hp));
+console.log(game.party.sort((a, b) => b.hp - a.hp));
 
 /*
 Exercise 18
@@ -271,7 +271,7 @@ game.catchPokemon =  function (pokemonObj){
   game.items[1].quantity -= 1;
 };
 game.catchPokemon(pokemon[76]);
-// console.log(game.items);
+console.log(game.items);
 
 /*
 Exercise 19
@@ -292,7 +292,7 @@ game.catchPokemon =  function (pokemonObj){
       game.collection.push(pokemonObj);
     }
   } else {
-    console.log("You don't have any pokeballs to catch this pokemon.")
+    return "You don't have any pokeballs to catch this pokemon.";
   }
 };
 
@@ -306,7 +306,23 @@ If there is not a match, then return a string noting that the selected Pokemon d
 
 Solve Exercise 20 here:
 */
+function findObjectIndex (array, key, value){
+ return array.findIndex(obj => obj[key] === value);
+}
+// found this function on google.... not sure it works
 game.catchPokemon =  function (pokemonObj){
+  if (typeof pokemonObj === "string"){
+    for (let i = 0; i < pokemon.length; i++){
+      pokemon[i].name.toLowerCase;
+    };
+    pokemonObj = pokemonObj.toLowerCase;
+    let index = findObjectIndex(pokemon, "name", pokemonObj);
+    if (index === -1){
+      return "That Pokemon does not exist."
+    } else {
+      pokemonObj = pokemon[index];
+    }
+  }
   if (game.items[1].quantity > 0){
     game.items[1].quantity -= 1;
     if (game.party.length < 6){
@@ -315,6 +331,85 @@ game.catchPokemon =  function (pokemonObj){
       game.collection.push(pokemonObj);
     }
   } else {
-    console.log("You don't have any pokeballs to catch this pokemon.")
+    return "You don't have any pokeballs to catch this pokemon.";
   }
-};
+}
+game.catchPokemon("Charmander");
+//wasn't able to solve this one :(
+
+/*
+Exercise 21
+Dynamically construct an object with the existing `pokemon` data sorted by the different pokemon types. The object will have this structure:
+
+{
+  grass: [
+    { number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true },
+    { number: 2, name: 'Ivysaur', type: 'grass', hp: 60, starter: false },
+    { number: 3, name: 'Venusaur', type: 'grass', hp: 80, starter: false },
+    * more grass type Pokemon objects...
+  ],
+  fire: [
+    { number: 4, name: 'Charmander', type: 'fire', hp: 39, starter: true },
+    * more fire type Pokemon objects...
+  ],
+  water: [
+    * water type Pokemon objects...
+  ],
+  * etc... until there is an array for every Pokemon type!
+}
+
+Log the object when it's constructed.
+
+Solve Exercise 21 here:
+*/
+const pokemonType = {
+  grass: [],
+  fire: [],
+  water: [],
+  bug: [],
+  normal: [],
+  poison: [],
+  electric: [],
+  ground: [],
+  psychic: [],
+  dragon: [],
+  fairy: [],
+  fighting: [],
+  rock: [],
+  ghost: [],
+  ice: []
+}
+for (let i = 0; i < pokemon.length; i++){
+  if (pokemon[i].type === "grass"){
+    pokemonType.grass.push(pokemon[i]);
+  } else if (pokemon[i].type === "fire"){
+    pokemonType.fire.push(pokemon[i]);
+  } else if (pokemon[i].type === "water"){
+    pokemonType.water.push(pokemon[i]);
+  } else if (pokemon[i].type === "bug"){
+    pokemonType.bug.push(pokemon[i]);
+  } else if (pokemon[i].type === "normal"){
+    pokemonType.normal.push(pokemon[i]);
+  } else if (pokemon[i].type === "electric"){
+    pokemonType.electric.push(pokemon[i]);
+  } else if (pokemon[i].type === "poison"){
+    pokemonType.poison.push(pokemon[i]);
+  } else if (pokemon[i].type === "ground"){
+    pokemonType.ground.push(pokemon[i]);
+  } else if (pokemon[i].type === "psychic"){
+    pokemonType.psychic.push(pokemon[i]);
+  } else if (pokemon[i].type === "dragon"){
+    pokemonType.dragon.push(pokemon[i]);
+  } else if (pokemon[i].type === "fairy"){
+    pokemonType.fairy.push(pokemon[i]);
+  } else if (pokemon[i].type === "fighting"){
+    pokemonType.fighting.push(pokemon[i]);
+  } else if (pokemon[i].type === "rock"){
+    pokemonType.rock.push(pokemon[i]);
+  } else if (pokemon[i].type === "ghost"){
+    pokemonType.ghost.push(pokemon[i]);
+  } else if (pokemon[i].type === "ice"){
+    pokemonType.ice.push(pokemon[i]);
+  }
+}
+console.log(pokemonType);
