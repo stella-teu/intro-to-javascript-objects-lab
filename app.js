@@ -1,23 +1,23 @@
-const pokemon = require('./data.js')
+const pokemon = require("./data.js");
 
 const game = {
-    party: [],
-    gyms: [
-      { location: "Pewter City", completed: false, difficulty: 1 },
-      { location: "Cerulean City", completed: false, difficulty: 2 },
-      { location: "Vermilion City", completed: false, difficulty: 3 },
-      { location: "Celadon City", completed: false, difficulty: 4 },
-      { location: "Fuchsia City", completed: false, difficulty: 5 },
-      { location: "Saffron City", completed: false, difficulty: 6 },
-      { location: "Cinnabar Island", completed: false, difficulty: 7 },
-      { location: "Viridian City", completed: false, difficulty: 8 },
-    ],
-    items: [
-      { name: "potion", quantity: 4 },
-      { name: "pokeball", quantity: 8 },
-      { name: "rare candy", quantity: 99 },
-    ],
-  }
+  party: [],
+  gyms: [
+    { location: "Pewter City", completed: false, difficulty: 1 },
+    { location: "Cerulean City", completed: false, difficulty: 2 },
+    { location: "Vermilion City", completed: false, difficulty: 3 },
+    { location: "Celadon City", completed: false, difficulty: 4 },
+    { location: "Fuchsia City", completed: false, difficulty: 5 },
+    { location: "Saffron City", completed: false, difficulty: 6 },
+    { location: "Cinnabar Island", completed: false, difficulty: 7 },
+    { location: "Viridian City", completed: false, difficulty: 8 },
+  ],
+  items: [
+    { name: "potion", quantity: 4 },
+    { name: "pokeball", quantity: 8 },
+    { name: "rare candy", quantity: 99 },
+  ],
+};
 
 // Exercise 1:
 //   console.dir(pokemon, {maxArrayLength: null});
@@ -64,9 +64,9 @@ Exercise 6
 
 Solve Exercise 6 here:
 */
-for (let i = 0; i < 2; i++){
-    game.gyms[i].completed = true;
-};
+for (let i = 0; i < 2; i++) {
+  game.gyms[i].completed = true;
+}
 
 /*
 Exercise 7
@@ -84,7 +84,7 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 
 Solve Exercise 7 here:
 */
-// i want to evolve pokemon based on their changing NUMBER, 
+// i want to evolve pokemon based on their changing NUMBER,
 game.party[0] = pokemon[1];
 game.party[1] = pokemon[133];
 game.party[2] = pokemon[86];
@@ -97,9 +97,9 @@ Exercise 8
 
 Solve Exercise 8 here:
 */
-for (let i = 0; i < game.party.length; i++){
-    console.log(game.party[i].name);
-};
+for (let i = 0; i < game.party.length; i++) {
+  console.log(game.party[i].name);
+}
 
 /*
 Exercise 9
@@ -109,11 +109,11 @@ Exercise 9
 
 Solve Exercise 9 here:
 */
-for (let i = 0; i < pokemon.length; i++){
-    if (pokemon[i].starter === true){
-        console.log(pokemon[i].name);
-    }
-};
+for (let i = 0; i < pokemon.length; i++) {
+  if (pokemon[i].starter === true) {
+    console.log(pokemon[i].name);
+  }
+}
 
 /*
 Exercise 10
@@ -126,8 +126,8 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
-game.catchPokemon =  function (pokemonObj){
-    game.party.push(pokemonObj);
+game.catchPokemon = function (pokemonObj) {
+  game.party.push(pokemonObj);
 };
 game.catchPokemon(pokemon[36]);
 
@@ -143,9 +143,9 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 
 Solve Exercise 11 here:
 */
-game.catchPokemon =  function (pokemonObj){
-    game.party.push(pokemonObj);
-    game.items[1].quantity -= 1;
+game.catchPokemon = function (pokemonObj) {
+  game.party.push(pokemonObj);
+  game.items[1].quantity -= 1;
 };
 game.catchPokemon(pokemon[55]);
 console.log(game.items);
@@ -157,9 +157,9 @@ Exercise 12
 
 Solve Exercise 12 here:
 */
-for (let i = 2; i < 5; i++){
-    game.gyms[i].completed = true;
-};
+for (let i = 2; i < 5; i++) {
+  game.gyms[i].completed = true;
+}
 
 /*
 Exercise 13
@@ -183,19 +183,19 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 
 Solve Exercise 13 here:
 */
-game.gymStatus = function (){
-    const gymTally = {
-        completed: 0,
-        incomplete: 0
-    };
-    for (let i = 0; i < game.gyms.length; i++){
-        if (game.gyms[i].completed === true){
-            gymTally.completed += 1;
-        } else {
-            gymTally.incomplete += 1;
-        }
-    };
-    console.log(gymTally);
+game.gymStatus = function () {
+  const gymTally = {
+    completed: 0,
+    incomplete: 0,
+  };
+  for (let i = 0; i < game.gyms.length; i++) {
+    if (game.gyms[i].completed === true) {
+      gymTally.completed += 1;
+    } else {
+      gymTally.incomplete += 1;
+    }
+  }
+  console.log(gymTally);
 };
 
 /*
@@ -209,8 +209,8 @@ This method should:
 
 Solve Exercise 14 here:
 */
-game.partyCount = function (){
-    return game.party.length;
+game.partyCount = function () {
+  return game.party.length;
 };
 
 /*
@@ -220,9 +220,9 @@ Exercise 15
 
 Solve Exercise 15 here:
 */
-for (let i = 5; i < 7; i++){
-    game.gyms[i].completed = true;
-};
+for (let i = 5; i < 7; i++) {
+  game.gyms[i].completed = true;
+}
 
 /*
 Exercise 16
@@ -262,8 +262,8 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 18 here:
 */
 game.collection = [];
-game.catchPokemon =  function (pokemonObj){
-  if (game.party.length < 6){
+game.catchPokemon = function (pokemonObj) {
+  if (game.party.length < 6) {
     game.party.push(pokemonObj);
   } else {
     game.collection.push(pokemonObj);
@@ -283,10 +283,10 @@ Also, ensure that the Pokemon isn't added to the `game.party` or the `game.colle
 
 Solve Exercise 19 here:
 */
-game.catchPokemon =  function (pokemonObj){
-  if (game.items[1].quantity > 0){
+game.catchPokemon = function (pokemonObj) {
+  if (game.items[1].quantity > 0) {
     game.items[1].quantity -= 1;
-    if (game.party.length < 6){
+    if (game.party.length < 6) {
       game.party.push(pokemonObj);
     } else {
       game.collection.push(pokemonObj);
@@ -306,26 +306,22 @@ If there is not a match, then return a string noting that the selected Pokemon d
 
 Solve Exercise 20 here:
 */
-function findObjectIndex (array, key, value){
- return array.findIndex(obj => obj[key] === value);
-}
-// found this function on google.... not sure it works
-game.catchPokemon =  function (pokemonObj){
-  if (typeof pokemonObj === "string"){
-    for (let i = 0; i < pokemon.length; i++){
-      pokemon[i].name.toLowerCase;
-    };
-    pokemonObj = pokemonObj.toLowerCase;
-    let index = findObjectIndex(pokemon, "name", pokemonObj);
-    if (index === -1){
-      return "That Pokemon does not exist."
+game.catchPokemon = function (pokemonObj) {
+  if (typeof pokemonObj === "string") { //will only work with spring variables
+    for (let i = 0; i < pokemon.length; i++) {
+      pokemon[i].name.toLowerCase; //changing all names to match the argument
+    }
+    pokemonObj = pokemonObj.toLowerCase; //changing argument to match pokemon no matter what is capital or not
+    let index = pokemon.findIndex(object => object.name === pokemonObj); //should find index of pokemon by using argument to search
+    if (index === -1) { // if argument doesnt match anything in pokemon array
+      return "That Pokemon does not exist.";
     } else {
       pokemonObj = pokemon[index];
     }
   }
-  if (game.items[1].quantity > 0){
+  if (game.items[1].quantity > 0) {
     game.items[1].quantity -= 1;
-    if (game.party.length < 6){
+    if (game.party.length < 6) {
       game.party.push(pokemonObj);
     } else {
       game.collection.push(pokemonObj);
@@ -333,9 +329,9 @@ game.catchPokemon =  function (pokemonObj){
   } else {
     return "You don't have any pokeballs to catch this pokemon.";
   }
-}
+};
 game.catchPokemon("Charmander");
-//wasn't able to solve this one :(
+console.log(game.collection);
 
 /*
 Exercise 21
@@ -377,39 +373,42 @@ const pokemonType = {
   fighting: [],
   rock: [],
   ghost: [],
-  ice: []
-}
-for (let i = 0; i < pokemon.length; i++){
-  if (pokemon[i].type === "grass"){
+  ice: [],
+};
+for (let i = 0; i < pokemon.length; i++) {
+  if (pokemon[i].type === "grass") {
     pokemonType.grass.push(pokemon[i]);
-  } else if (pokemon[i].type === "fire"){
+  } else if (pokemon[i].type === "fire") {
     pokemonType.fire.push(pokemon[i]);
-  } else if (pokemon[i].type === "water"){
+  } else if (pokemon[i].type === "water") {
     pokemonType.water.push(pokemon[i]);
-  } else if (pokemon[i].type === "bug"){
+  } else if (pokemon[i].type === "bug") {
     pokemonType.bug.push(pokemon[i]);
-  } else if (pokemon[i].type === "normal"){
+  } else if (pokemon[i].type === "normal") {
     pokemonType.normal.push(pokemon[i]);
-  } else if (pokemon[i].type === "electric"){
+  } else if (pokemon[i].type === "electric") {
     pokemonType.electric.push(pokemon[i]);
-  } else if (pokemon[i].type === "poison"){
+  } else if (pokemon[i].type === "poison") {
     pokemonType.poison.push(pokemon[i]);
-  } else if (pokemon[i].type === "ground"){
+  } else if (pokemon[i].type === "ground") {
     pokemonType.ground.push(pokemon[i]);
-  } else if (pokemon[i].type === "psychic"){
+  } else if (pokemon[i].type === "psychic") {
     pokemonType.psychic.push(pokemon[i]);
-  } else if (pokemon[i].type === "dragon"){
+  } else if (pokemon[i].type === "dragon") {
     pokemonType.dragon.push(pokemon[i]);
-  } else if (pokemon[i].type === "fairy"){
+  } else if (pokemon[i].type === "fairy") {
     pokemonType.fairy.push(pokemon[i]);
-  } else if (pokemon[i].type === "fighting"){
+  } else if (pokemon[i].type === "fighting") {
     pokemonType.fighting.push(pokemon[i]);
-  } else if (pokemon[i].type === "rock"){
+  } else if (pokemon[i].type === "rock") {
     pokemonType.rock.push(pokemon[i]);
-  } else if (pokemon[i].type === "ghost"){
+  } else if (pokemon[i].type === "ghost") {
     pokemonType.ghost.push(pokemon[i]);
-  } else if (pokemon[i].type === "ice"){
+  } else if (pokemon[i].type === "ice") {
     pokemonType.ice.push(pokemon[i]);
   }
 }
-console.log(pokemonType);
+// console.log(pokemonType);
+
+/* let wantedPokemonId = pokemon.findIndex(object => object.name === "Ivysaur");
+console.log(pokemon[wantedPokemonId]); */
