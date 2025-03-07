@@ -307,29 +307,28 @@ If there is not a match, then return a string noting that the selected Pokemon d
 Solve Exercise 20 here:
 */
 game.catchPokemon = function (pokemonName) {
-  if (typeof pokemonName === "string") { //will only work with spring variables
-    for (let i = 0; i < pokemon.length; i++) {
-      pokemon[i].name.toLowerCase(); //changing all names to match the argument
-    }
-    pokemonName = pokemonName.toLowerCase(); //changing argument to match pokemon no matter what is capital or not
-    let index = pokemon.find(object => object.name.toLowerCase() === pokemonName); //should find index of pokemon by using argument to search
-    if (index === -1) { // if argument doesnt match anything in pokemon array
-      return "That Pokemon does not exist.";
-    }
+  const lowerCasePokemon = pokemon.map((pokemon) => {
+    return pokemon.name.toLowerCase();
+  });
+  pokemonName = pokemonName.toLowerCase(); //changing argument to match pokemon no matter what is capital or not
+  let index = lowerCasePokemon.findIndex((pokemon) => {
+    return pokemon === pokemonName;
+  }); //should find index of pokemon by using argument to search
+  if (index === -1) {
+    // if argument doesnt match anything in pokemon array
+    console.log("That Pokemon does not exist.");
   }
   if (game.items[1].quantity > 0) {
     game.items[1].quantity -= 1;
     if (game.party.length < 6) {
-      game.party.push(pokemonName);
+      game.party.push(pokemon[index]);
     } else {
-      game.collection.push(pokemonName);
+      game.collection.push(pokemon[index]);
     }
   } else {
     return "You don't have any pokeballs to catch this pokemon.";
   }
 };
-game.catchPokemon("Charmander");
-console.log(game.collection);
 
 /*
 Exercise 21
